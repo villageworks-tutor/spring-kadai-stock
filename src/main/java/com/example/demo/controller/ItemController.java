@@ -28,7 +28,7 @@ public class ItemController {
 	@GetMapping("/items")
 	public String index(Model model) {
 		// すべての商品をデータベースから取得
-		List<Item> itemList = itemRepository.findAll();
+		List<Item> itemList = itemRepository.findAllByOrderById();
 		// 取得した商品リストをスコープに登録
 		model.addAttribute("itemList", itemList);
 		// 画面遷移
@@ -45,7 +45,7 @@ public class ItemController {
 		// 取得した商品をスコープに登録
 		model.addAttribute("item", item);
 		// パスパラメータで指定された商品の入出庫履歴をデータベースから取得
-		List<Stock> stockList = stockRepository.findByItemId(id);
+		List<Stock> stockList = stockRepository.findByItemIdOrderByOperatedAt(id);
 		// 取得した入出庫履歴リストをスコープに登録
 		model.addAttribute("stockList", stockList);
 		// 画面遷移

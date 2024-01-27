@@ -14,4 +14,10 @@ public interface StockRepository extends JpaRepository<Stock, Integer> {
 	 */
 	List<Stock> findByItemId(Integer id);
 
+	/**
+	 * 入出庫履歴の入出庫日時の昇順で商品ID検索
+	 * SELECT * FROM stocks WHERE item_id ORDER BY operated_at
+	 */
+	List<Stock> findByItemIdOrderByOperatedAt(Integer id);
+
 }
