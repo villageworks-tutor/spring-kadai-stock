@@ -12,6 +12,7 @@ import com.example.demo.repository.ItemRepository;
 import com.example.demo.repository.StockRepository;
 
 
+
 @Controller
 public class StockController {
 	
@@ -35,7 +36,29 @@ public class StockController {
 		Stock stock = new Stock(id, quantity);
 		// 入出庫履歴イスタンスを永続化
 		stockRepository.save(stock);
+		// 商品詳細画面表示にリダイレクト
 		return "redirect:/items/" + id;
 	}
+	
+	@PostMapping("/stock/{id}/outbound")
+	public String issue(
+			@PathVariable("id") Integer id,
+			@RequestParam(name = "outbound", defaultValue = "") Integer quantity) {
+		// リクエストパラメータの出庫数の符号反転
+		quantity = quantity * -1;
+		// パスパラメータから商品を取得
+		Item item = itemRepository.findById(id).get();
+		Integer currentStock = item.getStock();
+		item.setStock(currentStock + quantity);
+		// 商品を永続化
+		itemRepository.save(item);
+		// パスパラメータとリクエストパラメータから入出庫履歴をインスタンス化
+		Stock stock = new Stock(id, quantity);
+		// 入出庫履歴インスタンスを永続化
+		stockRepository.save(stock);
+		// 商品詳細画面表示にリダイレクト
+		return "redirect:/items/" + id;
+	}
+	
 	
 }
