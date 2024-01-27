@@ -26,11 +26,11 @@
 						<td th:text="${item.stock}"></td>
 					</tr>
 				</table>
-				<form action="'/stock/' + ${item.id} + '/inbound'" method="post">
+				<form th:action="'/stock/' + ${item.id} + '/inbound'" method="post">
 					<input type="number" name="inbound" />
 					<button>入庫</button>					
 				</form>
-				<form action="'/stock/' + ${item.id} + '/outbound'" method="post">
+				<form th:action="'/stock/' + ${item.id} + '/outbound'" method="post">
 					<input type="number" name="outbound" />
 					<button>出庫</button>					
 				</form>
