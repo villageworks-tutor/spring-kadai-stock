@@ -1,9 +1,9 @@
--- ¤•iƒe[ƒuƒ‹—pƒTƒ“ƒvƒ‹ƒŒƒR[ƒh
-INSERT INTO items (name, price, stock) VALUES ('ƒ‹[ƒ€ƒfƒjƒ€ƒWƒƒƒPƒbƒg', 4000, 3);
-INSERT INTO items (name, price, stock) VALUES ('‚Ó‚ñ‚í‚èƒƒ“ƒs[ƒX', 5000, 5);
-INSERT INTO items (name, price, stock) VALUES ('2wayƒgƒŒƒ“ƒ`ƒR[ƒg', 30000, 4);
+-- å•†å“ãƒ†ãƒ¼ãƒ–ãƒ«ç”¨ã‚µãƒ³ãƒ—ãƒ«ãƒ¬ã‚³ãƒ¼ãƒ‰
+INSERT INTO items (name, price, stock) VALUES ('ãƒ«ãƒ¼ãƒ ãƒ‡ãƒ‹ãƒ ã‚¸ãƒ£ã‚±ãƒƒãƒˆ', 4000, 3);
+INSERT INTO items (name, price, stock) VALUES ('ãµã‚“ã‚ã‚Šãƒ¯ãƒ³ãƒ”ãƒ¼ã‚¹', 5000, 5);
+INSERT INTO items (name, price, stock) VALUES ('2wayãƒˆãƒ¬ãƒ³ãƒã‚³ãƒ¼ãƒˆ', 30000, 4);
 
--- “üoŒÉƒe[ƒuƒ‹—pƒTƒ“ƒvƒ‹ƒŒƒR[ƒh
+-- å…¥å‡ºåº«ãƒ†ãƒ¼ãƒ–ãƒ«ç”¨ã‚µãƒ³ãƒ—ãƒ«ãƒ¬ã‚³ãƒ¼ãƒ‰
 INSERT INTO stocks (item_id, operated_at, quantity) VALUES (1, '2020/04/12 10:00:00', 3);
 INSERT INTO stocks (item_id, operated_at, quantity) VALUES (1, '2020/04/12 10:00:00', 1);
 INSERT INTO stocks (item_id, operated_at, quantity) VALUES (1, '2020/04/12 10:00:00', -1);
