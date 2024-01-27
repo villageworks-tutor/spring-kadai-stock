@@ -35,6 +35,7 @@ public class ItemController {
 		return "items";
 	}
 	
+	// 商品詳細画面表示
 	@GetMapping("/items/{id}")
 	public String show(
 			@PathVariable("id") Integer id,
@@ -50,4 +51,5 @@ public class ItemController {
 		// 画面遷移
 		return "detail";
 	}
+	
 }

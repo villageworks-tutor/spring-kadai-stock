@@ -22,4 +22,21 @@ public class Stock {
 	@Column(name = "operated_at")
 	private Timestamp operatedAt;
 	private Integer quantity;
+	
+	/**
+	 * デフォルトコンストラクタ
+	 */
+	public Stock() {}
+	
+	/**
+	 * コンストラクタ
+	 * @param itemId
+	 * @param quantity
+	 */
+	public Stock(Integer itemId, Integer quantity) {
+		this.itemId = itemId;
+		this.operatedAt = new Timestamp(System.currentTimeMillis());
+		this.quantity = quantity;
+	}
+	
 }
