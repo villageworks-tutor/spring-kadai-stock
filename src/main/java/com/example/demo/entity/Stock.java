@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,6 +38,11 @@ public class Stock {
 		this.itemId = itemId;
 		this.operatedAt = new Timestamp(System.currentTimeMillis());
 		this.quantity = quantity;
+	}
+	
+	public String getOperatedAt() {
+		 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		 return simpleDateFormat.format(this.operatedAt);
 	}
 	
 }
