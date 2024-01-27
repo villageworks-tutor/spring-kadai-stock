@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>在庫管理システム</title>
+</head>
+<body>
+	<header>
+		<h1>在庫管理システム</h1>
+	</header>
+	<main>
+		<article>
+			<section>
+				<h2>商品</h2>
+				<table border="">
+					<tr>
+						<th>商品ID</th>
+						<th>商品名</th>
+						<th>価格</th>
+						<th>在庫</th>
+					</tr>
+					<tr>
+						<td th:text="${item.id}"></td>
+						<td th:text="${item.name}"></td>
+						<td th:text="${item.price}"></td>
+						<td th:text="${item.stock}"></td>
+					</tr>
+				</table>
+				<form th:action="'/stock/' + ${item.id} + '/inbound'" method="post">
+					<input type="number" name="inbound" />
+					<button>入庫</button>					
+				</form>
+				<form th:action="'/stock/' + ${item.id} + '/outbound'" method="post">
+					<input type="number" name="outbound" />
+					<button>出庫</button>					
+				</form>
+			</section>
+			<section>
+				<h2>入出庫履歴</h2>
+				<table border="1">
+					<tr>
+						<th>入出庫日時</th>
+						<th>入庫</th>
+						<th>出庫</th>
+					</tr>
+					<tr th:each="stock:${stockList}">
+						<td th:text="${stock.operatedAt}"></td>
+						<td>
+							<!-- 配布のプログラミング例ではspanタグを使用しているが、ここではth:blockを使用した -->
+							<th:block th:if="${stock.quantity} ge 0" th:text="${stock.quantity}"></th:block>
+						</td>
+						<td>
+							<th:block th:if="${stock.quantity} le 0" th:text="${stock.quantity * (-1)}"></th:block>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<nav>
+				<a href="/items">商品一覧</a>
+			</nav>
+		</article>
+	</main>
+</body>
+</html>
